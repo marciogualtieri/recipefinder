@@ -1,4 +1,16 @@
-<h1>Searching for - <%= @search_term %></h1>
+<div class="nav navbar-nav navbar-left nav-pill">
+  <%= form_tag("/", :method => "get", id: "search-form", class: "navbar-form") do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", class: 'form-control' %>
+    <div class="input-group-btn">
+      <%= button_tag raw("<i class=\"glyphicon glyphicon-search\"></i>"), class: 'btn btn-default' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<h1>Results for - <%= @search_term %></h1>
 
 <table border="1">
   <tr>
@@ -7,10 +19,10 @@
   	<th>Social Rank</th>
   </tr>
   <% @recipes.each do |recipe| %>
-    <tr class=<%= cycle('even', 'odd') %>>
-      <td><%= link_to(image_tag(recipe["image_url"], size: "100"), recipe["source_url"]) %></td>
-      <td><%= link_to(sanitize(recipe["title"]), recipe["source_url"]) %></td>
-      <td><%= recipe["social_rank"] %></td>
-    </tr>
+  <tr class=<%= cycle('even', 'odd') %>>
+    <td><%= link_to(image_tag(recipe["image_url"], size: "100"), recipe["source_url"]) %></td>
+    <td><%= link_to(sanitize(recipe["title"]), recipe["source_url"]) %></td>
+    <td><%= recipe["social_rank"] %></td>
+  </tr>
   <% end %>
 </table>
