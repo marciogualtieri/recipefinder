@@ -4,6 +4,12 @@
 
 table {
   border-collapse: collapse;
+  width: 98% !important;
+  margin: 0px auto;  
+}
+
+tr {
+	color: #808775
 }
 
 td {
@@ -12,4 +18,58 @@ td {
 
 .even {
   background-color: #D6E1C3;
+}
+
+.carousel-inner,.carousel,.item,.container,.fill {
+  width: 90%;
+  background-position: center center;
+}
+
+.carousel-control {
+  padding-top: 10%;
+}
+
+.carousel-control.left {
+  margin-left: -5%;
+}
+
+.carousel-control.right {
+  margin-right: -5%;
+}
+
+.category_image { 
+  background: url(image.jpg) 50% 50% no-repeat;
+  width: 250px;
+  height: 250px;
+}
+
+#recipes_carousel {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.well {
+  background: #D6E1C3 !important;
+  width: 100% !important;
+}
+
+.category {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 200%;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000;
+    color: #D6E1C3;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#search_form_container {
+    margin-left: 0.5%
 }

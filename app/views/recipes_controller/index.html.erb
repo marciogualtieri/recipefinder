@@ -1,4 +1,49 @@
-<div class="nav navbar-nav navbar-left nav-pill">
+<div id = "search_carousel_container" class="container-fluid">
+  <div class="col-md-12">
+   <div class="well">
+    <div id="recipes_carousel" class="carousel slide">
+      <div class="carousel-inner">
+
+        <div class="item active">
+          <div class="row">
+            <% @categories.each_slice(6).first.each do |category| %>
+            <div class="col-sm-2">
+              <div class="category">
+                <%= link_to(image_tag(category["image_url"], class: "category_image"), "/?search=#{category['name']}") %>
+                <div class="centered">
+                  <%= category['name'] %>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <% @categories.each_slice(6).drop(1).each do |group| %>
+        <div class="item">
+          <div class="row">
+            <% group.each do |category| %>
+            <div class="col-sm-2">
+              <div class="category">
+                <%= link_to(image_tag(category["image_url"], class: "category_image"), "/?search=#{category['name']}") %>
+                <div class="centered">
+                  <%= category['name'] %>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <a class="left carousel-control" href="#recipes_carousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#recipes_carousel" data-slide="next">›</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="search_form_container">
   <%= form_tag("/", :method => "get", id: "search-form", class: "navbar-form") do %>
   <div class="input-group">
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", class: 'form-control' %>
@@ -9,20 +54,22 @@
   <% end %>
 </div>
 
-
-<h1>Results for - <%= @search_term %></h1>
-
-<table border="1">
-  <tr>
-  	<th>Thumbnail</th>
-  	<th>Title</th>
-  	<th>Social Rank</th>
-  </tr>
-  <% @recipes.each do |recipe| %>
-  <tr class=<%= cycle('even', 'odd') %>>
-    <td><%= link_to(image_tag(recipe["image_url"], size: "100"), recipe["source_url"]) %></td>
+<div class="digg_pagination">
+  <table>
+    <tr>
+     <th></th>
+     <th></th>
+     <th>Publisher</th>
+     <th>Popularity</th>
+   </tr>
+   <% @recipes.each do |recipe| %>
+   <tr class=<%= cycle('even', 'odd') %>>
+    <td><%= link_to(image_tag(recipe["image_url"], size: "150"), recipe["source_url"]) %></td>
     <td><%= link_to(sanitize(recipe["title"]), recipe["source_url"]) %></td>
+    <td><%= link_to(sanitize(recipe["publisher"]), recipe["publisher_url"]) %></td>
     <td><%= recipe["social_rank"] %></td>
   </tr>
   <% end %>
 </table>
+<%= will_paginate @recipes %>
+</div>

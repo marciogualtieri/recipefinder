@@ -1,0 +1,1 @@
+CATEGORIES = APP_CONFIG['categories'].map { |category_name| { 'name' => category_name, 'image_url' => Recipe.for(category_name).first['image_url'] } }

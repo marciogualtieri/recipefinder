@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recipefinder</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Recipefinder</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<header class="navbar navbar-fixed-top navbar-custom">
+		<div class="container">
+			<%= link_to "Recipe Finder", '/', id: "logo"%>
+			<nav>
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "About", 'about/about' %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
-<br/>
-<p><i>By Marcio Gualtieri (marcio dot gualtieri at gmail dot com) 2017</i></p>
-<p><i>Powered By Food2Fork.com</i></p>
+	<%= yield %>
+
+	<p>Powered By Food2Fork.com</p>
 
 </body>
 </html>

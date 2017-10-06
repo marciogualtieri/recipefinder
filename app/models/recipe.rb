@@ -1,6 +1,6 @@
 require 'httparty'
 
-class Recipe
+class Recipe < ActiveRecord::Base
 	include HTTParty
 
 	key_value = ENV['FOOD2FORK_KEY']
