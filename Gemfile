@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'loofah', '~> 2.2.3'
+gem 'rack', '~> 1.6.11'
 
 # Access an IRB console on exception pages or by using <%= console %> in views
 gem 'web-console', '~> 2.0', group: :development
