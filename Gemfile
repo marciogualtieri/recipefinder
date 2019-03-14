@@ -19,6 +19,7 @@ gem 'will_paginate'
 gem 'loofah', '~> 2.2.3'
 gem 'rack', '~> 1.6.11'
 gem 'activejob', '~> 4.2.11'
+gem 'actionview', '~> 4.2.11.1'
 
 # Access an IRB console on exception pages or by using <%= console %> in views
 gem 'web-console', '~> 2.0', group: :development
